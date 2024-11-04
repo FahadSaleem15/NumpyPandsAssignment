@@ -34,6 +34,9 @@ h      Laura    NaN
 i      Kevin    8.0                                                    
 j      Jonas   19.0 
 """
+exam = pd.DataFrame(exam_data)
+exam.index = labels
+print(exam[['name','score']])
 
 
 
@@ -51,7 +54,7 @@ f   20.0     yes
 g   14.5     yes
 
 """
-
+print(exam.loc[['b', 'd', 'f', 'g'], ['name', 'score','qualify']])
 
 
 
@@ -67,7 +70,8 @@ d    James    NaN         3      no
 f  Michael   20.0         3     yes                    
 
 """
-
+attempt_morethan2 = exam.loc[exam['attempts']>2, ['name','score','attempts','qualify']]
+print(attempt_morethan2)
 
 
 
@@ -84,7 +88,8 @@ j         1      Jonas       yes        19.0
 
 """
 
-
+score_between_15_20 = exam.loc[(exam['score'] >= 15) & (exam['score'] <= 20), ['attempts', 'name', 'qualify', 'score']]
+print(score_between_15_20)
 
 
 
@@ -107,6 +112,8 @@ Expected Output:
 
 """
 
+sorted_dataframe = exam.sort_values(by=['attempts','name'],ascending=True)
+print(sorted_dataframe)
 
 
 
